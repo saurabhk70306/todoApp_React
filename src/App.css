@@ -1,38 +1,210 @@
+/* src/App.css */
+
+body {
+  margin: 0px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #dad7cd;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
 .App {
   text-align: center;
+  padding: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#AppName {
+  color: #14213d;
+  margin:20px;
+  
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header {
+  background-color: #00b4d8;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(1, 0, 0, 0.8);
+
 }
 
-.App-link {
-  color: #61dafb;
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.task-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Media query for smaller screens to switch to 1 card per row */
+@media (max-width: 900px) {
+  .task-list {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (max-width: 600px) {
+  .task-list {
+    grid-template-columns: 1fr; /* 1 card per row */
   }
+}
+
+.task-card {
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  height:250px;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  overflow:hidden;
+}
+
+.task-card.pending {
+  background-color: #00b4d8; /* Color for pending tasks */
+}
+
+.task-card.complete {
+  background-color: #52b788; /* Color for completed tasks */
+}
+
+.task-card.incomplete {
+  background-color: #c9c9c9; /* Color for incomplete tasks */
+}
+
+.task-card .task-actions {
+  margin-top: 10px;
+}
+
+.task-card .task-actions button {
+  margin-right: 10px;
+}
+
+.task-list .ant-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #e8e8e8;
+  margin-bottom: 10px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.task-list .ant-list-item .ant-list-item-meta {
+  flex: 1;
+  text-align: left;
+}
+
+.task-list .ant-list-item .ant-list-item-meta .ant-list-item-meta-title {
+  margin-bottom: 0;
+}
+
+.task-list .ant-list-item .ant-btn {
+  margin-left: 10px;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.filters .ant-select {
+  width: 200px;
+}
+
+@media (max-width: 768px) {
+  .task-list .ant-list-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .task-list .ant-list-item .ant-btn {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .filters {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filters .ant-select {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+}
+
+.form-container .ant-form-item {
+  margin-bottom: 15px;
+}
+
+.form-container .ant-btn {
+  margin-right: 10px;
+}
+
+#add-task-button {
+  background-color: #e76f51;
+  color:#ffffff;
+  padding:20px;
+  margin:20px;
+  shadow:2px;
+  
+}
+
+#add-task-button:hover {
+ background-color: #52b788; 
+ color: #ffffff;
+}
+
+.arrange-items {
+  padding: 10px;
+  display: flex;
+  margin:10px;
+}
+
+.filter-task {
+  padding-right: 10px;
+  margin-top:10px;
+  
+}
+.sort-task {
+  padding: 10px;
+}
+
+.stats {
+  margin:20px;
+  display:flex;
+  justify-content: space-between;
+
 }
